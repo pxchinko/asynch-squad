@@ -1,4 +1,4 @@
-# asynch-squad
+# asynchronous-squad
 JavaScript II Group Project
 
 # authors
