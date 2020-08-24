@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 
+<html lang="en">
+
 <head>
     <title>Asynchronous Squad JavaScript Quiz</title>
 
@@ -9,23 +11,69 @@
     <!-- Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="style/quiz.css">
 </head>
+
 <body>
     <div class="card">
         <div class="slider">
             <!-- card for each question -->
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
-            <div class="item"></div>
+            <div class="item">
+                <h4>Question 1:</h4>
+                <p></p>
+            </div>
+            <div class="item">
+                <h4>Question 2:</h4>
+                <p></p>
+            </div>
+            <div class="item">
+                <h4>Question 3:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 4:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 5:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 6:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 7:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 8:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 9:</h4>
+                <p></p>
+            </div>
+             <div class="item">
+                <h4>Question 10:</h4>
+                <p></p>
+            </div>
+            <div class="item">
+                <h4>Ready to submit?</h4>
+                <p></p>
+            </div>
         </div>
     </div>
 </body>
 
-    <!-- JQuery link -->
+<!-- JQuery link -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Slider JS link -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+    $(".slider").slick({
+        centerMode: true,
+        slidesToShow: 3,
+    })
+</script>
+
+</html>
