@@ -12,13 +12,19 @@ body {
   margin-top: 50px;
 }
 .slick-slide {
-  margin: 0;
+  transform: scale(0.8);
+  opacity: 0.3;
+  transition: all ease 0.5s;
+}
+.slick-slide.slick-current {
+  transform: scale(1);
+  opacity: 1;
 }
 .item {
   padding: 15px;
   outline: none;
   background: #fff;
-  box-shadow: 10px 10px 5px rgba(0,0,0, 0,2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .item-inner {
   border-radius: 20px;
@@ -26,7 +32,7 @@ body {
   padding: 25px;
 }
 .item-inner h4 {
-  font-size: 2em;
+  font-size: 1.6em;
   color: #808099;
 }
 .item-inner p {
@@ -36,12 +42,33 @@ body {
   padding-top: 0;
   color: rgba(black, 0.8);
 }
-button.slick-prev slick-arrow, 
-button.slick-next slick-arrow {
-  font-family: 'Open Sans';
-  background-color: azure;
+
+/* Slider Control */
+.slick-arrow {
+  font-family: 'Helvetica';
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  background: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 50px;
+  width: 100px;
+  outline: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-button.slick-prev slick-arrow:before,
-button.slick-next slick-arrow:before {
-  background-color: aqua;
+.slick-next {
+  left: 52%
+}
+.slick-prev {
+  left: 40%
+}
+.slick-prev:hover,
+.slick-next:hover {
+  background-color: gray;
+  color: aliceblue
+}
+.slick-list {
+  padding-top: 55px !important;
+  padding-bottom: 55px !important;
 }
