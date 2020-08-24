@@ -3,167 +3,187 @@
 <html lang="en">
 
 <head>
-    <title>Asynchronous Squad JavaScript Quiz</title>
-
-    <!-- Slider Stylesheet below -->
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-
-    <!-- Custom Stylesheet -->
+  <title>Asynchronous Squad JavaScript Quiz</title>
+    <meta charset="UTF-8">
+  <!-- Slider Stylesheet below -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <!-- Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="style/quiz.css">
+  <!-- JQuery link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Slider JS link -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
 <body>
-    <div class="card">
-        <div class="slider">
-            <!-- card for each question -->
-            <div class="item">
-                <h4>Question 1:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-            <div class="item">
-                <h4>Question 2:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-            <div class="item">
-                <h4>Question 3:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 4:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 5:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 6:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 7:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 8:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 9:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save Answer">
-            </div>
-             <div class="item">
-                <h4>Question 10:</h4>
-                <p></p>
-                <input type="checkbox" id="answer1" name="" value="">
-                <label for="answer1"></label><br>
-                <input type="checkbox" id="answer2" name="" value="">
-                <label for="answer2"></label><br>
-                <input type="checkbox" id="answer3" name="" value="">
-                <label for="answer3"></label><br>
-                <input type="checkbox" id="answer4" name="" value="">
-                <label for="answer4"></label><br><br>
-                <input type="submit" value="Save answer">
-            </div>
-            <div class="item">
-                <h4>Ready to submit?</h4>
-                <input type="submit" value="Submit">
-            </div>
-        </div>
+  <div class="card">
+    <section class="slider">
+      <!-- card for each question -->
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 1:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 2:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 3:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 4:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 5:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Questionn 6:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 7:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 8:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 9:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <section class="item">
+          <div class="item-inner">
+            <h4>Question 10:</h4>
+              <p></p>
+            <input type="checkbox" id="answer1" name="" value="">
+              <label for="answer1"></label><br>
+            <input type="checkbox" id="answer2" name="" value="">
+              <label for="answer2"></label><br>
+            <input type="checkbox" id="answer3" name="" value="">
+              <label for="answer3"></label><br>
+            <input type="checkbox" id="answer4" name="" value="">
+              <label for="answer4"></label><br><br>
+            <input type="submit" value="Save answer">
+          </div>
+        </section>
+        <button class="slick-prev slick-arrow" label="Previous" type="button">Previous</button>
+      </section>
+        <form class="below">
+          <h4>Ready to submit?</h4>
+            <input type="submit" value="Submit">
+        </form>
     </div>
 </body>
 
-<!-- JQuery link -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<!-- Slider JS link -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
 <script>
-    $(".slider").slick({
-        centerMode: true,
-        slidesToShow: 3,
-    })
+$(".slider").slick({
+  centerMode: true,
+  slidesToShow: 3,
+  dots: true
+})
 </script>
 
 </html>
