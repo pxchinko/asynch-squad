@@ -60,6 +60,7 @@ body {
   width: 100px;
   outline: none;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: 0.3s;
 }
 .slick-next {
   left: 52%
