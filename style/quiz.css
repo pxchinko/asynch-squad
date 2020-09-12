@@ -3,20 +3,23 @@
     padding: 0;
 }
 body {
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
-  background-color: #0e0b16;
+  background-color: #efefef;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Question Card Style */
 .card {
-  margin-top: 50px;
+  margin-top: 25px;
 }
 .slick-slide {
   transform: scale(0.8);
   opacity: 0.3;
   transition: all ease 0.5s;
+  box-sizing: border-box;
+  width: 650px;
+  height: 450px;
 }
 .slick-slide.slick-current {
   transform: scale(1);
@@ -25,43 +28,60 @@ body {
 .item {
   padding: 15px;
   outline: none;
-  background: #e7dfdd;
+  background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* Inner Card Style */
 .item-inner {
-  padding: 25px;
+  padding: 25px 30px;
 }
-.item-inner h4 {
+.item-inner h1 {
+  font-size: 3em;
+  text-align: left;
+}
+.item-inner h2, h4 {
   text-align: center;
   font-size: 1.953em;
-  color: #a239ca;
+  color: #a9a9a9;
 }
 .item-inner p {
-  line-height: 1.2em;
-  font-size: 1.563em;
+  line-height: 1em;
+  font-size: 1.2em;
   margin-top: 16px;
-  padding-top: 0;
   padding-bottom: 10px;
   color: rgba(black, 0.8);
 }
 
 .item-inner label {
-  font-size: 1.25em;
+  width: 100%;
+  font-size: 1em;
+  padding: 10px 0;
 }
 
 .item-inner input {
-  margin-top: 20px;
-  margin-right: 10px;
+  margin-top: 15px
 }
 
 .item-inner input[type=submit] {
   margin-right: auto;
   margin-left: auto;
+  margin-top: auto;
   display: block;
-  font-size: 1.25em;
+  font-size: 0.8em;
+  color: #ff3b3f;
+  background: none;
+  outline: none;
+  border: solid #ff3b3f 1px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.item-inner input[type=submit]:hover {
+  background: #ff3b3f;
+  color: #efefef;
+  transition: 0.3s
 }
 
 
@@ -88,8 +108,8 @@ body {
 }
 .slick-prev:hover,
 .slick-next:hover {
-  background-color: lightblue;
-  color: white;
+  background-color: #caebf2;
+  color: #464646;
 }
 .slick-list {
   padding-top: 55px !important;
