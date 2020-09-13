@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <!-- Slider JS link -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <!-- FontAwesome Kit -->
+    <script src="https://kit.fontawesome.com/0eb6aa6ebe.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -194,15 +196,12 @@
 <script>
 $(".slider").slick({
   centerMode: true,
-  centerPadding: '20px',
   slidesToShow: 3,
   variableWidth: true,
   infinite: false,
   arrows: true,
-});
-$('.selector').slick({
-  nextArrow: '<i class="fa fa-arrow-right"></i>',
-  prevArrow: '<i class="fa fa-arrow-left"></i>',
+  nextArrow: '<span class="next-arrow"><i class="fas fa-angle-right"></i></i></span>',
+  prevArrow: '<span class="prev-arrow"><i class="fas fa-angle-left"></i></span>',
 });
 </script>
 

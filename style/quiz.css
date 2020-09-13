@@ -5,7 +5,7 @@
 body {
   height: 100vh;
   overflow: hidden;
-  background-color: #efefef;
+  background-color: #e7e7e7;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -18,19 +18,19 @@ body {
   opacity: 0.3;
   transition: all ease 0.5s;
   box-sizing: border-box;
-  width: 650px;
-  height: 450px;
+  width: 625px;
+  height: 425px;
 }
 .slick-slide.slick-current {
-  transform: scale(1);
   opacity: 1;
+  transform: scale(1);
 }
 .item {
   padding: 15px;
   outline: none;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: #efefef;
+  border-radius: 15px;
+  box-shadow: 4px 12px 32px rgba(0,0,0, .1);
 }
 
 /* Inner Card Style */
@@ -67,49 +67,60 @@ body {
 .item-inner input[type=submit] {
   margin-right: auto;
   margin-left: auto;
-  margin-top: auto;
+  margin-bottom: auto;
   display: block;
+
   font-size: 0.8em;
-  color: #ff3b3f;
-  background: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #fff;
+  background: #51d0de;
+
   outline: none;
-  border: solid #ff3b3f 1px;
+  border: none;
   padding: 10px 20px;
   border-radius: 20px;
 }
 
 .item-inner input[type=submit]:hover {
-  background: #ff3b3f;
-  color: #efefef;
+  background: #d9d9d9;
+  color: #51d0de;
   transition: 0.3s
 }
 
 
 /* Slider Control */
-.slick-arrow {
-  font-family: 'Helvetica';
+.slider .next-arrow, .slider .prev-arrow {
   position: absolute;
   bottom: 0;
   z-index: 99;
+
   background: #fff;
+  color: #464646;
+  box-shadow: 2px 4px 6px rgba(0,0,0, .1);
+
   border: none;
-  padding: 8px 15px;
-  border-radius: 50px;
-  width: 100px;
+  border-radius: 50%;
   outline: none;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+  line-height: 40px;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+
+  cursor: pointer;
   transition: 0.3s;
 }
-.slick-next {
-  left: 52%
+.slider .next-arrow {
+  right: 40%
 }
-.slick-prev {
+.slider .prev-arrow {
   left: 40%
 }
-.slick-prev:hover,
-.slick-next:hover {
-  background-color: #caebf2;
-  color: #464646;
+.slider .prev-arrow:hover,
+.slider .next-arrow:hover {
+  background-color: #51def9;
+  color: #fff;
 }
 .slick-list {
   padding-top: 55px !important;
