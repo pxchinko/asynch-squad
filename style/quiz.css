@@ -155,3 +155,7 @@ section #ready {
   padding-top: 55px !important;
   padding-bottom: 55px !important;
 }
+
+.submitButton {
+	width: 60%;
+}
