@@ -17,10 +17,12 @@
     <script src="https://kit.fontawesome.com/0eb6aa6ebe.js" crossorigin="anonymous"></script>
   <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+  <!-- knockout Library -->
+  <script src="knockout-3.5.1.js"></script>
 </head>
 
 <body>
-  <form class="card">
+  <form class="card" data-bind="submit: submissions">
     <section class="slider">
       <!-- card for each question -->
       <section class="item" id="intro">
@@ -36,28 +38,28 @@
           <div class="item-inner">
             <h4>Question 1:</h4>
               <p>What is the correct way to write a JavaScript array?</p>
-            <input type="radio" id="answer1" name="" value="">
+              <input type="radio" id="answer1" name="1"data-bind="checked: submission1"  value="a">
               <label for="answer1">arrayName = [item1, item2, item3]</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="1"data-bind="checked: submission1" value="b">
               <label for="answer2">var arrayName = item1, item2, item3</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="1"data-bind="checked: submission1"  value="c">
               <label for="answer3">var arrayName = "item1, item2, item3"</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="1"data-bind="checked: submission1"  value="d">
               <label for="answer4">var arrayName = [item1, item2, item3]</label><br><br>
-            <input class="save-answer" type="submit" value="Save answer">
+            <input class="save-answer" type="submit" value="Save answer" >
           </div>
         </section>
         <section class="item">
           <div class="item-inner">
             <h4>Question 2:</h4>
               <p>How does JavaScript store dates in a date object?</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="2"  data-bind="checked: submission2" value="a">
               <label for="answer1">The number of milliseconds since January 1st, 1970.</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="2" data-bind="checked: submission2" value="b">
               <label for="answer2">The number of days since January 1st, 1900.</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="2" data-bind="checked: submission2" value="c">
               <label for="answer3">The number of seconds since Netscape's public stock offering.</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="2" data-bind="checked: submission2" value="d">
               <label for="answer4">None of the above.</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -66,13 +68,13 @@
           <div class="item-inner">
             <h4>Question 3:</h4>
               <p>How do you comment in JavaScript?</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="3" data-bind="checked: submission3" value="a">
               <label for="answer1">&ltComment Here&gt </label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="3" data-bind="checked: submission3" value="b">
               <label for="answer2">&lt!--Comment Here--&gt</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="3" data-bind="checked: submission3" value="c">
               <label for="answer3">/Comment Here/</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="3" data-bind="checked: submission3" value="d">
               <label for="answer4">//Comment Here</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -81,16 +83,16 @@
           <div class="item-inner">
             <h4>Question 4:</h4>
               <p>How do you define a function in JavaScript?</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="4"  data-bind="checked: submission4" value="a">
               <label for="answer1">Function myFunction() {<br />
               //code here</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="4" data-bind="checked: submission4"  value="b">
               <label for="answer2">run myFunction {<br />
               //code here</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="4" data-bind="checked: submission4"  value="c">
               <label for="answer3">function myFunction() {<br />
               //code here</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="4" data-bind="checked: submission4"  value="d">
               <label for="answer4">Functions are defined in a separate file.</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -103,13 +105,13 @@
                 x = 4 + "4";<br />
                 document.write(x);<br />
                 &lt/script&gt</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="5" data-bind="checked: submission5" value="a">
               <label for="answer1">44</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="5" data-bind="checked: submission5" value="b">
               <label for="answer2">8</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="5" data-bind="checked: submission5" value="c">
               <label for="answer3">4</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="5" data-bind="checked: submission5" value="d">
               <label for="answer4">Error output.</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -118,13 +120,13 @@
           <div class="item-inner">
             <h4>Question 6:</h4>
               <p>What is the correct JavaScript syntax to write "Hello World"?</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="6" data-bind="checked: submission6" value="a">
               <label for="answer1">System.out.printIn("Hello World")</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="6" data-bind="checked: submission6" value="b">
               <label for="answer2">printIn ("Hello World")</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="6" data-bind="checked: submission6" value="c">
               <label for="answer3">document.write("Hello World")</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="6" data-bind="checked: submission6" value="d">
               <label for="answer4">response.write("Hello World")</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -133,13 +135,13 @@
           <div class="item-inner">
             <h4>Question 7:</h4>
               <p>Where is the JavaScript placed inside an HTML document or page?</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="7" data-bind="checked: submission7" value="a">
               <label for="answer1">JavaScript cannot be placed inside an HTML document.</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="7" data-bind="checked: submission7" value="b">
               <label for="answer2">In the &ltbody&gt and &lthead&gt sections.</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="7" data-bind="checked: submission7" value="c">
               <label for="answer3">Only in the &lthead&gt section.</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="7" data-bind="checked: submission7" value="d">
               <label for="answer4">Only in the &ltbody&gt section.</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -148,13 +150,13 @@
           <div class="item-inner">
             <h4>Question 8:</h4>
               <p>What is meant by the "this" keyword in JavaScript?</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="8" data-bind="checked: submission8" value="a">
               <label for="answer1">It refers to the current object.</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="8" data-bind="checked: submission8" value="b">
               <label for="answer2">It refers to the previous object.</label><br>
-            <input type="radio" id="answer3" name="" value="">
+            <input type="radio" id="answer3" name="8" data-bind="checked: submission8" value="c">
               <label for="answer3">It is a variable which contains a value.</label><br>
-            <input type="radio" id="answer4" name="" value="">
+            <input type="radio" id="answer4" name="8" data-bind="checked: submission8" value="d">
               <label for="answer4">None of the above.</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -163,9 +165,9 @@
           <div class="item-inner">
             <h4>Question 9:</h4>
               <p>JavaScript is a case sensitive language.</p>
-            <input type="radio" id="answer1" name="" value="">
+            <input type="radio" id="answer1" name="9" data-bind="checked: submission9" value="a">
               <label for="answer1">True.</label><br>
-            <input type="radio" id="answer2" name="" value="">
+            <input type="radio" id="answer2" name="9" data-bind="checked: submission9" value="b">
               <label for="answer2">False</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -174,13 +176,13 @@
           <div class="item-inner">
             <h4>Question 10:</h4>
               <p>Which group of array methods are used in JavaScript?</p>
-            <input type="radio" id="answer1" name="A" value="">
+            <input type="radio" id="answer1" name="10" data-bind="checked: submission10" value="a">
               <label for="answer1">splice(), concat(), delete(), toString()</label><br>
-            <input type="radio" id="answer2" name="B" value="">
+            <input type="radio" id="answer2" name="10" data-bind="checked: submission10" value="b">
               <label for="answer2">toString(), bubbleSort(), order(), quicksort()</label><br>
-            <input type="radio" id="answer3" name="C" value="">
+            <input type="radio" id="answer3" name="10" data-bind="checked: submission10" value="c">
               <label for="answer3">&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt</label><br>
-            <input type="radio" id="answer4" name="D" value="">
+            <input type="radio" id="answer4" name="10" data-bind="checked: submission10" value="d">
               <label for="answer4">SELECT, BREACH, FROM, INSERT</label><br><br>
             <input class="save-answer" type="submit" value="Save answer">
           </div>
@@ -207,6 +209,30 @@ $(".slider").slick({
   nextArrow: '<span class="next-arrow"><i class="fas fa-angle-right"></i></i></span>',
   prevArrow: '<span class="prev-arrow"><i class="fas fa-angle-left"></i></span>',
 });
+</script>
+
+<script >
+  function SubmissionviewModel()  {
+          this.submission1 = ko.observable("");
+          this.submission2 = ko.observable("");
+          this.submission3 = ko.observable("");
+          this.submission4 = ko.observable("");
+          this.submission5 = ko.observable("");
+          this.submission6 = ko.observable("");
+          this.submission7 = ko.observable("");
+          this.submission8 = ko.observable("");
+          this.submission9 = ko.observable("");
+          this.submission10 = ko.observable("");
+
+          this.submissions = function() {
+            var answerUnwrapped = ko.unwrap(this.submission1);  
+            console.log(answerUnwrapped);
+
+              
+          };
+
+  };
+  ko.applyBindings(new SubmissionviewModel());
 </script>
 
 </html>
