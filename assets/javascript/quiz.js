@@ -1,12 +1,4 @@
-var json = {
-  title: "JavaScript Quiz",
-  showProgressBar: "bottom",
-  showTimerPanel: "top",
-  maxTimeToFinishPage: 60,
-  maxTimeToFinish: 600,
-  firstPageIsStarted: true,
-  startSurveyText: "Start Quiz",
-  pages: [
+const myQuestions = [
   {
     question: [
       {
@@ -37,8 +29,8 @@ var json = {
   {
     question: 'How do you comment in JavaScript?',
     answers: {
-      a: '<Comment Here></Comment>',
-      b: '<!--Comment Here-->',
+      a: '&ltComment Here&gt',
+      b: '&lt!--Comment Here--&gt',
       c: '/Comment Here/',
       d: '//Comment Here',
     },
