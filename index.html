@@ -18,7 +18,9 @@
   <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
   <!-- knockout Library -->
-  <script src="knockout-3.5.1.js"></script>
+    <script src="assets/javascript/knockout-3.5.1.js"></script>
+  <!-- quiz Javascript library -->
+    <script src="assets/javascript/quiz.js"></script>
 </head>
 
 <body>
@@ -101,7 +103,7 @@
           <div class="item-inner">
             <h4>Question 5:</h4>
               <p>What is the expected output of: <br />
-                &ltscript type = "text/javascript&gt<br />
+                &ltscript type = "text/javascript"&gt<br />
                 x = 4 + "4";<br />
                 document.write(x);<br />
                 &lt/script&gt</p>
@@ -212,7 +214,7 @@ $(".slider").slick({
 </script>
 
 <script >
-  function SubmissionviewModel()  {
+  function SubmissionViewModel()  {
           this.submission1 = ko.observable("");
           this.submission2 = ko.observable("");
           this.submission3 = ko.observable("");
