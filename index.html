@@ -31,11 +31,11 @@
     </div>
   </section>
   <section id="main">
-    <div class="quiz-container" data-bind="submit: submissions">
+    <div class="quiz-container">
         <div id="quiz"></div>
         <button id="previous"><span class="prev-arrow"><i class="fas fa-angle-left"></i></span></button>
         <button id="next"><span class="next-arrow"><i class="fas fa-angle-right"></i></i></span></button>
-        <button id="submit">Submit Quiz</button>
+        <button id="submit" data-bind="submit: submissions">Submit</button>
     </div>
     <div class="container">
       <div id="results"></div>
@@ -59,7 +59,7 @@ function buildQuiz(){
       for(letter in currentQuestion.answers){
         answers.push(
           `<label>
-            <input type="radio" name="question${questionNumber}" value="${letter}" data-bind="checked: submissions">
+            <input type="radio" name="question${questionNumber+1}" value="${letter}" data-bind="checked: submissions">
             ${letter} :
             ${currentQuestion.answers[letter]}
           </label><br>`
@@ -89,7 +89,7 @@ function showResults(){
 
     // find selected answer
     const answerContainer = answerContainers[questionNumber];
-    const selector = `input[name=question${questionNumber}]:checked`;
+    const selector = `input[name=question${questionNumber+1}]:checked`;
     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
     // if answer is correct
@@ -113,14 +113,14 @@ function showSlide(n) {
     previousButton.style.display = 'none';
   }
   else{
-    previousButton.style.display = 'inline-block';
+    previousButton.style.display = 'inline';
   }
   if(currentSlide === slides.length-1){
     nextButton.style.display = 'none';
-    submitButton.style.display = 'inline-block';
+    submitButton.style.display = 'inline';
   }
   else{
-    nextButton.style.display = 'inline-block';
+    nextButton.style.display = 'inline';
     submitButton.style.display = 'none';
   }
 }
@@ -131,6 +131,7 @@ function showNextSlide() {
 function showPreviousSlide() {
   showSlide(currentSlide - 1);
 }
+
 // get elements from the dom
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
@@ -179,7 +180,7 @@ const quizQuestions = [
     correctAnswer: 'c'
   },
   {
-    question: 'What is the expected output of: \n&ltscript type = \"text/javascript\"&gt \nx = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
+    question: 'What is the expected output of: \n &ltscript type = \"text/javascript\"&gt \n x = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
     answers: {
       a: '44',
       b: '8',
@@ -240,8 +241,8 @@ const quizQuestions = [
 
 buildQuiz();
 
-const previousButton = document.getElementsByClassName("prev-arrow");
-const nextButton = document.getElementsByClassName("next-arrow");
+const previousButton = document.getElementById("previous");
+const nextButton = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
 
@@ -266,7 +267,7 @@ function SubmissionViewModel()  {
   this.submission10 = ko.observable("");
 
   this.submissions = function() {
-    var answerUnwrapped = ko.unwrap(this.submission1);  
+    var answerUnwrapped = ko.unwrap(this.answers);  
     console.log(answerUnwrapped);
   };
 };

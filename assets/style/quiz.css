@@ -9,11 +9,7 @@ body {
   width: 100vw;
   overflow-x: hidden;
 
-  justify-content: center;
-  align-items: center;
-
   background: url(ignasi_pattern_s.png);
-  background-position: unset;
 }
 
 /* Question Card Style */
@@ -30,33 +26,19 @@ body {
   box-shadow: 4px 12px 32px rgba(0,0,0, .1);
 }
 #main {
-  margin-left: 300px;
-
   display: flex;
+  align-items: center;
   justify-content: center;
-  float: right;
 
   width: 75%;
   height: 100vh;
 }
-.item {
-  width: 600px;
-  padding: 35px;
-  margin-top: 30px;
-
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(1px);
-  border-radius: 15px;
-  box-shadow: 4px 12px 32px rgba(0,0,0, .1);
-
-  display: flex;
-  flex-direction: column;
-}
 #intro .container {
   padding:10%;
 }
-
+.quiz-container {
+  height: 400px;
+}
 .slide{
   position: absolute;
   left: 0px;
@@ -70,9 +52,8 @@ body {
   opacity: 1;
   z-index: 2;
 
-  padding: 35px;
-  margin-top: 30px;
-  width: 600px;
+  padding: 30px;
+  width: 650px;
 
   outline: none;
   background-color: rgba(255, 255, 255, 0.2);
@@ -81,7 +62,11 @@ body {
   box-shadow: 4px 12px 32px rgba(0,0,0, .1);
 }
 .quiz-container{
-  position: relative;
+  position: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 /* Inner Card Style */
 h1,h2,h4,p {
@@ -108,11 +93,17 @@ p {
   font-size: 1em;
   color: rgba(black, 0.8);
 }
-label {
+.answers label {
+  display: block;
   font-family: 'Lato',sans-serif;
   font-size: 1em;
-  padding: 10px 0;
   margin-top: 10px;
+  line-height: 1em;
+}
+.answers {
+  margin-top: 10px;
+  text-align: left;
+  display: inline-block;
 }
 #submit {
   margin-left: auto;
@@ -136,9 +127,13 @@ label {
   color: #51d0de;
   transition: 0.5s;
 }
-
+#previous, #next {
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  border: none;
+}
 .prev-arrow, .next-arrow {
-  bottom: 20%;
   position: absolute;
   z-index: 99;
   cursor: pointer;
@@ -148,16 +143,8 @@ label {
   border: none;
   outline: none;
 
-  line-height: 40px;
   text-align: center;
-  display: inline-block;
-  padding: 10px;
-  height: 40px;
-  width: 40px;
-}
-.prev-arrow {
-  left: 40%;
-}
-.next-arrow {
-  right: 40%;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
 }
