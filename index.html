@@ -5,223 +5,234 @@
 <head>
   <title>Asynchronous Squad JavaScript Quiz</title>
     <meta charset="UTF-8">
-  <!-- Slider Stylesheet below -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
   <!-- Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/style/quiz.css">
   <!-- JQuery link -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- Slider JS link -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/0eb6aa6ebe.js" crossorigin="anonymous"></script>
   <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Chelsea+Market&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Lato:wght@300;400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
   <!-- knockout Library -->
     <script src="assets/javascript/knockout-3.5.1.js"></script>
-  <!-- quiz Javascript library -->
-    <script src="assets/javascript/quiz.js"></script>
+          
 </head>
 
 <body>
-  <form class="card" data-bind="submit: submissions">
-    <section class="slider">
-      <!-- card for each question -->
-      <section class="item" id="intro">
-        <div class="item-inner">
-          <h1>WEB-330 JavaScript Quiz</h1>
-            <p>Brought to you by the following developers:</p>
-            <h2>Sarah Massie</h2>
-            <h2>Brooklyn Hairston</h2>
-            <h2>Juvenal Gonzalez</h2>
-        </div>
-      </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 1:</h4>
-              <p>What is the correct way to write a JavaScript array?</p>
-              <input type="radio" id="answer1" name="1"data-bind="checked: submission1"  value="a">
-              <label for="answer1">arrayName = [item1, item2, item3]</label><br>
-            <input type="radio" id="answer2" name="1"data-bind="checked: submission1" value="b">
-              <label for="answer2">var arrayName = item1, item2, item3</label><br>
-            <input type="radio" id="answer3" name="1"data-bind="checked: submission1"  value="c">
-              <label for="answer3">var arrayName = "item1, item2, item3"</label><br>
-            <input type="radio" id="answer4" name="1"data-bind="checked: submission1"  value="d">
-              <label for="answer4">var arrayName = [item1, item2, item3]</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 2:</h4>
-              <p>How does JavaScript store dates in a date object?</p>
-            <input type="radio" id="answer1" name="2"  data-bind="checked: submission2" value="a">
-              <label for="answer1">The number of milliseconds since January 1st, 1970.</label><br>
-            <input type="radio" id="answer2" name="2" data-bind="checked: submission2" value="b">
-              <label for="answer2">The number of days since January 1st, 1900.</label><br>
-            <input type="radio" id="answer3" name="2" data-bind="checked: submission2" value="c">
-              <label for="answer3">The number of seconds since Netscape's public stock offering.</label><br>
-            <input type="radio" id="answer4" name="2" data-bind="checked: submission2" value="d">
-              <label for="answer4">None of the above.</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 3:</h4>
-              <p>How do you comment in JavaScript?</p>
-            <input type="radio" id="answer1" name="3" data-bind="checked: submission3" value="a">
-              <label for="answer1">&ltComment Here&gt</label><br>
-            <input type="radio" id="answer2" name="3" data-bind="checked: submission3" value="b">
-              <label for="answer2">&lt!--Comment Here--&gt</label><br>
-            <input type="radio" id="answer3" name="3" data-bind="checked: submission3" value="c">
-              <label for="answer3">/Comment Here/</label><br>
-            <input type="radio" id="answer4" name="3" data-bind="checked: submission3" value="d">
-              <label for="answer4">//Comment Here</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 4:</h4>
-              <p>How do you define a function in JavaScript?</p>
-            <input type="radio" id="answer1" name="4"  data-bind="checked: submission4" value="a">
-              <label for="answer1">Function myFunction() { //code here }</label><br>
-            <input type="radio" id="answer2" name="4" data-bind="checked: submission4"  value="b">
-              <label for="answer2">run myFunction { //code here }</label><br>
-            <input type="radio" id="answer3" name="4" data-bind="checked: submission4"  value="c">
-              <label for="answer3">function myFunction() { //code here }</label><br>
-            <input type="radio" id="answer4" name="4" data-bind="checked: submission4"  value="d">
-              <label for="answer4">Functions are defined in a separate file.</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 5:</h4>
-              <p>What is the expected output of: <br />
-                &ltscript type = "text/javascript"&gt<br />
-                x = 4 + "4";<br />
-                document.write(x);<br />
-                &lt/script&gt</p>
-            <input type="radio" id="answer1" name="5" data-bind="checked: submission5" value="a">
-              <label for="answer1">44</label><br>
-            <input type="radio" id="answer2" name="5" data-bind="checked: submission5" value="b">
-              <label for="answer2">8</label><br>
-            <input type="radio" id="answer3" name="5" data-bind="checked: submission5" value="c">
-              <label for="answer3">4</label><br>
-            <input type="radio" id="answer4" name="5" data-bind="checked: submission5" value="d">
-              <label for="answer4">Error output.</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 6:</h4>
-              <p>What is the correct JavaScript syntax to write "Hello World"?</p>
-            <input type="radio" id="answer1" name="6" data-bind="checked: submission6" value="a">
-              <label for="answer1">System.out.printIn("Hello World")</label><br>
-            <input type="radio" id="answer2" name="6" data-bind="checked: submission6" value="b">
-              <label for="answer2">printIn ("Hello World")</label><br>
-            <input type="radio" id="answer3" name="6" data-bind="checked: submission6" value="c">
-              <label for="answer3">document.write("Hello World")</label><br>
-            <input type="radio" id="answer4" name="6" data-bind="checked: submission6" value="d">
-              <label for="answer4">response.write("Hello World")</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 7:</h4>
-              <p>Where is the JavaScript placed inside an HTML document or page?</p>
-            <input type="radio" id="answer1" name="7" data-bind="checked: submission7" value="a">
-              <label for="answer1">JavaScript cannot be placed inside an HTML document.</label><br>
-            <input type="radio" id="answer2" name="7" data-bind="checked: submission7" value="b">
-              <label for="answer2">In the &ltbody&gt and &lthead&gt sections.</label><br>
-            <input type="radio" id="answer3" name="7" data-bind="checked: submission7" value="c">
-              <label for="answer3">Only in the &lthead&gt section.</label><br>
-            <input type="radio" id="answer4" name="7" data-bind="checked: submission7" value="d">
-              <label for="answer4">Only in the &ltbody&gt section.</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 8:</h4>
-              <p>What is meant by the "this" keyword in JavaScript?</p>
-            <input type="radio" id="answer1" name="8" data-bind="checked: submission8" value="a">
-              <label for="answer1">It refers to the current object.</label><br>
-            <input type="radio" id="answer2" name="8" data-bind="checked: submission8" value="b">
-              <label for="answer2">It refers to the previous object.</label><br>
-            <input type="radio" id="answer3" name="8" data-bind="checked: submission8" value="c">
-              <label for="answer3">It is a variable which contains a value.</label><br>
-            <input type="radio" id="answer4" name="8" data-bind="checked: submission8" value="d">
-              <label for="answer4">None of the above.</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 9:</h4>
-              <p>JavaScript is a case sensitive language.</p>
-            <input type="radio" id="answer1" name="9" data-bind="checked: submission9" value="a">
-              <label for="answer1">True.</label><br>
-            <input type="radio" id="answer2" name="9" data-bind="checked: submission9" value="b">
-              <label for="answer2">False</label>
-          </div>
-        </section>
-        <section class="item">
-          <div class="item-inner">
-            <h4>Question 10:</h4>
-              <p>Which group of array methods are used in JavaScript?</p>
-            <input type="radio" id="answer1" name="10" data-bind="checked: submission10" value="a">
-              <label for="answer1">splice(), concat(), delete(), toString()</label><br>
-            <input type="radio" id="answer2" name="10" data-bind="checked: submission10" value="b">
-              <label for="answer2">toString(), bubbleSort(), order(), quicksort()</label><br>
-            <input type="radio" id="answer3" name="10" data-bind="checked: submission10" value="c">
-              <label for="answer3">&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt</label><br>
-            <input type="radio" id="answer4" name="10" data-bind="checked: submission10" value="d">
-              <label for="answer4">SELECT, BREACH, FROM, INSERT</label>
-          </div>
-        </section>
-        <section class="item" id="ready">
-          <div class="item-inner">
-              <h4 class="submit">Ready to submit?</h4>
-              <input class="submit submitButton" type="submit" value="Submit">
-            </div>
-            
-          </div>
-        </section>
-      </section>
-    </form>
+  <section id="intro">
+    <div class="container">
+      <h1>WEB-330</h1>
+        <h2>Sarah Massie</h2>
+        <h2>Brooklyn Hairston</h2>
+        <h2>Juvenal Gonzalez</h2>
+        <p>A JavaScript quiz concluding one's expertise at this programming language.
+          <br/> Are you a novice, intermediate, or expert?</p>
+    </div>
+  </section>
+  <section id="main">
+    <div class="container" data-bind="submit: submissions">
+        <div id="quiz"></div>
+        <button id="submit">Submit Quiz</button>
+    </div>
+    <div class="container">
+      <div id="results"></div>
+    </div>
+  </section>
 </body>
 
+<!-- nextArrow: '<span class="next-arrow"><i class="fas fa-angle-right"></i></i></span>'
+prevArrow: '<span class="prev-arrow"><i class="fas fa-angle-left"></i></span>' -->
+
 <script>
-$(".slider").slick({
-  centerMode: true,
-  slidesToShow: 3,
-  variableWidth: true,
-  infinite: false,
-  arrows: true,
-  nextArrow: '<span class="next-arrow"><i class="fas fa-angle-right"></i></i></span>',
-  prevArrow: '<span class="prev-arrow"><i class="fas fa-angle-left"></i></span>',
-});
-</script>
 
-<script >
-  function SubmissionViewModel()  {
-          this.submission1 = ko.observable("");
-          this.submission2 = ko.observable("");
-          this.submission3 = ko.observable("");
-          this.submission4 = ko.observable("");
-          this.submission5 = ko.observable("");
-          this.submission6 = ko.observable("");
-          this.submission7 = ko.observable("");
-          this.submission8 = ko.observable("");
-          this.submission9 = ko.observable("");
-          this.submission10 = ko.observable("");
+function buildQuiz(){
+  const output = [];
 
-          this.submissions = function() {
-            var answerUnwrapped = ko.unwrap(this.submission1);  
-            console.log(answerUnwrapped);
+  // iteration for each question
+  quizQuestions.forEach(
+    (currentQuestion, questionNumber) => {
+      const answers = [];
 
-              
-          };
+      for(letter in currentQuestion.answers){
+        answers.push(
+          `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}" data-bind="checked: submissions">
+            ${letter} :
+            ${currentQuestion.answers[letter]}
+          </label><br>`
+        );
+      }
 
+      // add this question and its answers to the output
+      output.push(
+        `<div class="item"><div class="question"> <h4>${currentQuestion.question}</h4> </div>
+        <div class="answers"> ${answers.join('')} </div></div>`
+      );
+    }
+  );
+
+  // finally combine our output list into one string of HTML and put it on the page
+  quizContainer.innerHTML = output.join('');
+}
+
+function showResults(){
+  const answerContainers = quizContainer.querySelectorAll('.answers');
+  let numCorrect = 0;
+  var correctAnswer='';
+  var resultsContainer = [];
+
+  // iteration for each question
+  quizQuestions.forEach( (currentQuestion, questionNumber) => {
+
+    // find selected answer
+    const answerContainer = answerContainers[questionNumber];
+    const selector = `input[name=question${questionNumber}]:checked`;
+    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+    // if answer is correct
+    if(userAnswer === currentQuestion.correctAnswer){
+      // add to the number of correct answers
+      numCorrect++;
+      answerContainers[questionNumber].style.color = 'lightgreen';
+    }
+    else{
+      answerContainers[questionNumber].style.color = 'red';
+    }
+  });
+  resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
+}
+
+// get elements from the dom
+const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('submit');
+
+// array of questions
+const quizQuestions = [
+  {
+    question: "What is the correct way to write a JavaScript array?",
+    answers: {
+      a: 'arrayName = [item1, item2, item3]',
+      b: 'var arrayName = item1, item2, item3',
+      c: 'var arrayName = \"item1, item2, item3\"',
+      d: 'var arrayName = [item1, item2, item3]'
+    },
+    correctAnswer: 'd'
+  },
+  {
+    question: 'How does JavaScript store dates in a date object?',
+    answers: {
+      a: 'The number of milliseconds since January 1st, 1970.',
+      b: 'The number of days since January 1st, 1900.',
+      c: 'The number of seconds since Netscape\'s public stock offering.',
+      d: 'None of the above.',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: 'How do you comment in JavaScript?',
+    answers: {
+      a: '&ltComment Here&gt',
+      b: '&lt!--Comment Here--&gt',
+      c: '/Comment Here/',
+      d: '//Comment Here',
+    },
+    correctAnswer: 'd'
+  },
+  {
+    question: 'How do you define a function in JavaScript?',
+    answers: {
+      a: 'Function myFunction() { //code here }',
+      b: 'run myFunction { // code here }',
+      c: 'function myFunction() { // code here }',
+      d: 'Functions are defined in a separate file.',
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: 'What is the expected output of: \n&ltscript type = \"text/javascript\"&gt \nx = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
+    answers: {
+      a: '44',
+      b: '8',
+      c: '4',
+      d: 'Error output.',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: 'What is the correct JavaScript syntax to write \"Hello World\"?',
+    answers: {
+      a: 'System.out.printIn(\"Hello World\")',
+      b: 'printIn(\"Hello World\")',
+      c: 'document.write(\"Hello World\")',
+      d: 'response.write(\"Hello World\")',
+    },
+    correctAnswer: 'c'
+  },
+  {
+    question: 'Where is the JavaScript placed inside an HTML document or page?',
+    answers: {
+      a: 'JavaScript cannot be placed inside an HTML document.',
+      b: 'In the &ltbody&gt and &lthead&gt sections.',
+      c: 'Only in the &lthead&gt section.',
+      d: 'Only in the &ltbody&gt section.',
+    },
+    correctAnswer: 'd'
+  },
+  {
+    question: 'What is meant by the \"this\" keyword in JavaScript?',
+    answers: {
+      a: 'It refers to the current object.',
+      b: 'It refers to the previous object.',
+      c: 'It is a variable which contains a value.',
+      d: 'None of the above.',
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: 'JavaScript is a case sensitive language.',
+    answers: {
+      a: 'True',
+      b: 'False'
+    },
+    correctAnswer: 'a'
+  },
+  {
+    question: 'Which group of array methods are used in JavaScript?',
+    answers: {
+      a: 'splice(), concat(), delete(), toString()',
+      b: 'toString(), bubbleSort(), order(), quicksort()',
+      c: '&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt',
+      d: 'SELECT, BREACH, FROM, INSERT',
+    },
+    correctAnswer: 'a'
+  },
+];
+// Kick things off
+  buildQuiz();
+
+// Event listeners
+submitButton.addEventListener('click', showResults);
+
+function SubmissionViewModel()  {
+  this.submission1 = ko.observable("");
+  this.submission2 = ko.observable("");
+  this.submission3 = ko.observable("");
+  this.submission4 = ko.observable("");
+  this.submission5 = ko.observable("");
+  this.submission6 = ko.observable("");
+  this.submission7 = ko.observable("");
+  this.submission8 = ko.observable("");
+  this.submission9 = ko.observable("");
+  this.submission10 = ko.observable("");
+
+  this.submissions = function() {
+    var answerUnwrapped = ko.unwrap(this.submission1);  
+    console.log(answerUnwrapped);
   };
-  ko.applyBindings(new SubmissionviewModel());
+};
+ko.applyBindings(new SubmissionviewModel());
+
 </script>
 
 </html>

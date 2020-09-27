@@ -1,4 +1,4 @@
-const myQuestions = [
+const questions = [
   {
     question: [
       {
