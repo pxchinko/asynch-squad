@@ -36,9 +36,6 @@ body {
 #intro .container {
   padding:10%;
 }
-.quiz-container {
-  height: 400px;
-}
 .slide{
   position: absolute;
   left: 0px;
@@ -63,7 +60,7 @@ body {
 }
 .quiz-container{
   position: fixed;
-  height: 100vh;
+  height: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,8 +103,6 @@ p {
   display: inline-block;
 }
 #submit {
-  margin-left: auto;
-  margin: 20px 0px;
   cursor: pointer;
 
   font-size: 0.679em;

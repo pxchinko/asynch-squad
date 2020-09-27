@@ -32,14 +32,12 @@
   </section>
   <section id="main">
     <div class="quiz-container">
-        <div id="quiz"></div>
-        <button id="previous"><span class="prev-arrow"><i class="fas fa-angle-left"></i></span></button>
-        <button id="next"><span class="next-arrow"><i class="fas fa-angle-right"></i></i></span></button>
-        <button id="submit" data-bind="submit: submissions">Submit</button>
-    </div>
-    <div class="container">
+      <div id="quiz"></div>
       <div id="results"></div>
-    </div>
+    </div>  
+      <button id="previous"><span class="prev-arrow"><i class="fas fa-angle-left"></i></span></button>
+      <button id="next"><span class="next-arrow"><i class="fas fa-angle-right"></i></i></span></button>
+      <button id="submit" data-bind="submit: submissions">Submit</button>
   </section>
 </body>
 
@@ -66,15 +64,12 @@ function buildQuiz(){
         );
       }
 
-      // add this question and its answers to the output
       output.push(
         `<div class="slide"><div class="question"> <h4>${currentQuestion.question}</h4> </div>
         <div class="answers"> ${answers.join('')} </div></div>`
       );
     }
   );
-
-  // finally combine our output list into one string of HTML and put it on the page
   quizContainer.innerHTML = output.join('');
 }
 
