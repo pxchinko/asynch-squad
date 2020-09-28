@@ -5,7 +5,7 @@
 <head>
   <title>Asynchronous Squad JavaScript Quiz</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width"/>
+    <meta name="viewport" content="width=device-width, initial-scale-1"/>
   <!-- Custom Stylesheet -->
     <link rel="stylesheet" type="text/css" href="assets/style/quiz.css">
   <!-- JQuery link -->
@@ -34,7 +34,7 @@
     <div class="quiz-container">
       <div id="quiz"></div>
       <div id="results"></div>
-    </div>  
+    </div>
       <button id="previous"><span class="prev-arrow"><i class="fas fa-angle-left"></i></span></button>
       <button id="next"><span class="next-arrow"><i class="fas fa-angle-right"></i></i></span></button>
       <button id="submit" data-bind="submit: submissions">Submit</button>
@@ -89,9 +89,9 @@ function showResults(){
 
     // if answer is correct
     if(userAnswer === currentQuestion.correctAnswer){
-      // add to the number of correct answers
       numCorrect++;
-      answerContainers[questionNumber].style.color = 'lightgreen';
+      const scorePercent = Math.round(100 * numCorrect/quizQuestions.length)
+      console.log(scorePercent);
     }
     else{
       answerContainers[questionNumber].style.color = 'red';
@@ -108,14 +108,14 @@ function showSlide(n) {
     previousButton.style.display = 'none';
   }
   else{
-    previousButton.style.display = 'inline';
+    previousButton.style.display = 'inline-block';
   }
   if(currentSlide === slides.length-1){
     nextButton.style.display = 'none';
     submitButton.style.display = 'inline';
   }
   else{
-    nextButton.style.display = 'inline';
+    nextButton.style.display = 'inline-block';
     submitButton.style.display = 'none';
   }
 }
@@ -250,23 +250,14 @@ previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
 
 function SubmissionViewModel()  {
-  this.submission1 = ko.observable("");
-  this.submission2 = ko.observable("");
-  this.submission3 = ko.observable("");
-  this.submission4 = ko.observable("");
-  this.submission5 = ko.observable("");
-  this.submission6 = ko.observable("");
-  this.submission7 = ko.observable("");
-  this.submission8 = ko.observable("");
-  this.submission9 = ko.observable("");
-  this.submission10 = ko.observable("");
+  var questions = 
 
   this.submissions = function() {
     var answerUnwrapped = ko.unwrap(this.answers);  
     console.log(answerUnwrapped);
   };
 };
-ko.applyBindings(new SubmissionviewModel());
+ko.applyBindings(new SubmissionViewModel());
 
 </script>
 
