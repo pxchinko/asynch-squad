@@ -1,223 +1,192 @@
-
-function buildQuiz(){
-    const output = [];
-  
-    // iteration for each question
-    quizQuestions.forEach(
-      (currentQuestion, questionNumber) => {
-        const answers = [];
-  
-        for(letter in currentQuestion.answers){
-          answers.push(
-            `<label>
-              <input type="radio" name="question${questionNumber+1}" value="${letter}" data-bind="checked: $root.userAnswer">
-              ${letter} :
-              ${currentQuestion.answers[letter]}
-            </label><br>`
-          );
-        }
-  
-        output.push(
-          `<div class="slide"><div class="question"> <h4>${currentQuestion.question}</h4> </div>
-          <div class="answers"> ${answers.join('')} </div></div>`
-        );
-      }
-    );
-    quizContainer.innerHTML = output.join('');
-}
-
-const quizQuestions = [
-  new QuizObject ({
-    question: "What is the correct way to write a JavaScript array?",
-    answers: {
-      a: 'arrayName = [item1, item2, item3]',
-      b: 'var arrayName = item1, item2, item3',
-      c: 'var arrayName = \"item1, item2, item3\"',
-      d: 'var arrayName = [item1, item2, item3]'
-    },
-    correctAnswer: 'd'
-  }),
-  new QuizObject ({
-    question: 'How does JavaScript store dates in a date object?',
-    answers: {
-      a: 'The number of milliseconds since January 1st, 1970.',
-      b: 'The number of days since January 1st, 1900.',
-      c: 'The number of seconds since Netscape\'s public stock offering.',
-      d: 'None of the above.',
-    },
-    correctAnswer: 'a'
-  }),
-  new QuizObject ({
-    question: 'How do you comment in JavaScript?',
-    answers: {
-      a: '&ltComment Here&gt',
-      b: '&lt!--Comment Here--&gt',
-      c: '/Comment Here/',
-      d: '//Comment Here',
-    },
-    correctAnswer: 'd'
-  }),
-  new QuizObject ({
-    question: 'How do you define a function in JavaScript?',
-    answers: {
-      a: 'Function myFunction() { //code here }',
-      b: 'run myFunction { // code here }',
-      c: 'function myFunction() { // code here }',
-      d: 'Functions are defined in a separate file.',
-    },
-    correctAnswer: 'c'
-  }),
-  new QuizObject ({
-    question: 'What is the expected output of: \n &ltscript type = \"text/javascript\"&gt \n x = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
-    answers: {
-      a: '44',
-      b: '8',
-      c: '4',
-      d: 'Error output.',
-    },
-    correctAnswer: 'a'
-  }),
-  new QuizObject ({
-    question: 'What is the correct JavaScript syntax to write \"Hello World\"?',
-    answers: {
-      a: 'System.out.printIn(\"Hello World\")',
-      b: 'printIn(\"Hello World\")',
-      c: 'document.write(\"Hello World\")',
-      d: 'response.write(\"Hello World\")',
-    },
-    correctAnswer: 'c'
-  }),
-  new QuizObject ({
-    question: 'Where is the JavaScript placed inside an HTML document or page?',
-    answers: {
-      a: 'JavaScript cannot be placed inside an HTML document.',
-      b: 'In the &ltbody&gt and &lthead&gt sections.',
-      c: 'Only in the &lthead&gt section.',
-      d: 'Only in the &ltbody&gt section.',
-    },
-    correctAnswer: 'd'
-  }),
-  new QuizObject ({
-    question: 'What is meant by the \"this\" keyword in JavaScript?',
-    answers: {
-      a: 'It refers to the current object.',
-      b: 'It refers to the previous object.',
-      c: 'It is a variable which contains a value.',
-      d: 'None of the above.',
-    },
-    correctAnswer: 'a'
-  }),
-  new QuizObject ({
-    question: 'JavaScript is a case sensitive language.',
-    answers: {
-      a: 'True',
-      b: 'False'
-    },
-    correctAnswer: 'a'
-  }),
-  new QuizObject ({
-    question: 'Which group of array methods are used in JavaScript?',
-    answers: {
-      a: 'splice(), concat(), delete(), toString()',
-      b: 'toString(), bubbleSort(), order(), quicksort()',
-      c: '&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt',
-      d: 'SELECT, BREACH, FROM, INSERT',
-    },
-    correctAnswer: 'a'
-  })
-]
-  
-  function showResults(){
-    const answerContainers = quizContainer.querySelectorAll('.answers');
-    let numCorrect = 0;
-    var correctAnswer='';
-    var resultsContainer = [];
-  
-    // iteration for each question
-    quizQuestions.forEach( (currentQuestion, questionNumber) => {
-  
-      // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber+1}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
-  
-      // if answer is correct
-      if(userAnswer === currentQuestion.correctAnswer){
-        numCorrect++;
-        const scorePercent = Math.round(100 * numCorrect/quizQuestions.length)
-        console.log(scorePercent);
-      }
-      else{
-        answerContainers[questionNumber].style.color = 'red';
-      }
-    });
-    resultsContainer.innerHTML = `${numCorrect} out of ${quizQuestions.length}`;
-  }
-  
-function showSlide(n) {
-  slides[currentSlide].classList.remove('active-slide');
-  slides[n].classList.add('active-slide');
-  currentSlide = n;
-  if(currentSlide === 0){
-    previousButton.style.display = 'none';
-  }
-  else{
-    previousButton.style.display = 'inline-block';
-  }
-  if(currentSlide === slides.length-1){
-    nextButton.style.display = 'none';
-    submitButton.style.display = 'inline';
-  }
-  else{
-    nextButton.style.display = 'inline-block';
-    submitButton.style.display = 'none';
-  }
-}
-function showNextSlide() {
-  showSlide(currentSlide + 1);
-}
-function showPreviousSlide() {
-  showSlide(currentSlide - 1);
-}
-  
-// get elements from the dom
-const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
-  
-function QuizObject(question, answers, correctAnswer) {
-    this.question = question,
-    this.answers = answers,
-    this.correctAnswer = correctAnswer
-}
 // array of questions
+const quizQuestions = [{
+  question: "What is the correct way to write a JavaScript array?",
+  answers: [
+    'arrayName = [item1, item2, item3]',
+    'var arrayName = item1, item2, item3',
+    'var arrayName = \"item1, item2, item3\"',
+    'var arrayName = [item1, item2, item3]'
+  ],
+  correctAnswer: 'var arrayName = [item1, item2, item3]'
+},{
+  question: 'How does JavaScript store dates in a date object?',
+  answers: [
+    'The number of milliseconds since January 1st, 1970.',
+    'The number of days since January 1st, 1900.',
+    'The number of seconds since Netscape\'s public stock offering.',
+    'None of the above.',
+  ],
+  correctAnswer: 'The number of milliseconds since January 1st, 1970.'
+},{
+  question: 'How do you comment in JavaScript?',
+  answers: [
+    '&ltComment Here&gt',
+    '&lt!--Comment Here--&gt',
+    '/Comment Here/',
+    '//Comment Here',
+  ],
+  correctAnswer: '//Comment Here'
+},{
+  question: 'How do you define a function in JavaScript?',
+  answers: [
+    'Function myFunction() { //code here }',
+    'run myFunction { // code here }',
+    'function myFunction() { // code here }',
+    'Functions are defined in a separate file.'
+  ],
+  correctAnswer: 'function myFunction() { // code here }'
+},{
+  question: 'What is the expected output of: \n &ltscript type = \"text/javascript\"&gt \n x = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
+  answers: [
+    '44',
+    '8',
+    '4',
+    'Error output.',
+  ],
+  correctAnswer: '44'
+},{
+  question: 'What is the correct JavaScript syntax to write \"Hello World\"?',
+  answers: [
+    'System.out.printIn(\"Hello World\")',
+    'printIn(\"Hello World\")',
+    'document.write(\"Hello World\")',
+    'response.write(\"Hello World\")',
+  ],
+  correctAnswer: 'document.write(\"Hello World\")'
+},{
+  question: 'Where is the JavaScript placed inside an HTML document or page?',
+  answers: [
+    'JavaScript cannot be placed inside an HTML document.',
+    'In the &ltbody&gt and &lthead&gt sections.',
+    'Only in the &lthead&gt section.',
+    'Only in the &ltbody&gt section.',
+  ],
+  correctAnswer: 'Only in the &ltbody&gt section.'
+},{
+  question: 'What is meant by the \"this\" keyword in JavaScript?',
+  answers: [
+    'It refers to the current object.',
+    'It refers to the previous object.',
+    'It is a variable which contains a value.',
+    'None of the above.',
+  ],
+  correctAnswer: 'It refers to the current object.'
+},{
+  question: 'JavaScript is a case sensitive language.',
+  answers: [
+    'True',
+    'False'
+  ],
+  correctAnswer: 'True'
+},{
+  question: 'Which group of array methods are used in JavaScript?',
+  answers: [
+    'splice(), concat(), delete(), toString()',
+    'toString(), bubbleSort(), order(), quicksort()',
+    '&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt',
+    'SELECT, BREACH, FROM, INSERT',
+  ],
+  correctAnswer: 'splice(), concat(), delete(), toString()'
+}];
 
-function SubmissionViewModel()  {
-  var quiz = this;
-  quiz.question = ko.observable("");
-  quiz.answers = ko.observable("");
-  quiz.correctAnswer = ko.observable("");
+function QuestionObject (question, answers, correctAnswer) {
+  this.Question = question,
+  this.Answers = answers,
+  this.Correct = correctAnswer
+}
 
-  quiz.questions = ko.observableArray(quizQuestions);
+function QuestionViewModel() {
+  var self = this;
+  self.question = ko.observable("");
+  self.answers = ko.observable("");
+  self.correctAnswer = ko.observable("")
 
-  this.submissions = function() {
-    var answerUnwrapped = ko.unwrap(this.answers);  
-    console.log(answerUnwrapped);
-  };
-};
-ko.applyBindings(new SubmissionViewModel());
+  self.QuizQuestions = ko.observableArray(quizQuestions);
+
+  self.questionCounter = 0;
+  self.userAnswer = [];
+
+  function createRadios(index) {
+    var radioList = $('<ul>');
+    var item;
+    var input = '';
+    for (var i = 0; i < self.QuizQuestions.answers.length; i++) {
+      item= $('<li>');
+      input = '<input type="radio" name="answer" value=' + i + '/>';
+      input += self.questions[index].self.answers[i];
+      item.append(input);
+      radioList.append(item);
+    }
+    return radioList;
+  }
+
+  function chooseAnswer() {
+    userAnswer[questionCounter] =
+    +$('input[name="answer":checked').val();
+  }
+  function displayNext() {
+    self.quiz.fadeOut(function() {
+      $('#question').remove();
+      
+    if(self.questionCounter < self.question.length){
+      self.nextQuestion = createQuestionElement(self.questionCounter);
+      quiz.append(self.nextQuestion).fadeIn();
+      if (!(isNaN(self.userAnswer[questionCounter]))) {
+        $('input[value='+self.userAnswer[questionCounter]+']').prop('checked', true);
+      }
+    }
+    }) 
+  } 
+  function displayScore() {
+    self.score = $('<p>',{id: 'question'});
+    
+    var numCorrect = 0;
+    for (var i = 0; i < userAnswer.length; i++) {
+      if (selections[i] === questions[i].correctAnswer) {
+        numCorrect++;
+      }
+    }
+    
+    self.score.append('You got ' + numCorrect + ' questions out of ' +
+                  self.questions.length + ' right!');
+    return self.score * 10;
+  }
+  self.questionCounter = 0; //Tracks question number
+  self.quiz = $('#quiz'); //Quiz div object
+
+// Display initial question
+self.quiz.displayNext();
   
-  buildQuiz();
+// Click handler for the 'next' button
+$('#next').on('click', function (e) {
+  e.preventDefault();
   
-  const previousButton = document.getElementById("previous");
-  const nextButton = document.getElementById("next");
-  const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+  // Suspend click listener during fade animation
+  if(quiz.is(':animated')) {        
+    return false;
+  }
+  choose();
   
-  // Show the first slide
-  showSlide(currentSlide);
+  // If no user selection, progress is stopped
+  if (isNaN(selections[questionCounter])) {
+    alert('Please make a selection!');
+  } else {
+    questionCounter++;
+    displayNext();
+  }
+});
+
+// Click handler for the 'prev' button
+$('#prev').on('click', function (e) {
+  e.preventDefault();
   
-  // Event listeners
-  submitButton.addEventListener('click', showResults);
-  previousButton.addEventListener("click", showPreviousSlide);
-  nextButton.addEventListener("click", showNextSlide);
+  if(quiz.is(':animated')) {
+    return false;
+  }
+  choose();
+  questionCounter--;
+  displayNext();
+});
+    }
+
+ko.applyBindings(new QuestionViewModel());
