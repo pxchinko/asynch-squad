@@ -89,6 +89,7 @@ li {
 
   outline: none;
   position: relative;
+  bottom: 25px;
 
   background-color: #51d0de;
   border-radius: 50%;
@@ -101,7 +102,7 @@ li {
   line-height: 50px;
 }
 #quiz {
-  display: flex-end;
+  height: 85%;
   padding: 20px 20px 50px 20px;
 }
 .button:hover {
@@ -110,6 +111,7 @@ li {
   transition: 0.5s;
 }
 #previous, #next {
+  bottom: 0;
   outline: none;
   border: none;
 }
