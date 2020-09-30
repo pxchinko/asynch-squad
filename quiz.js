@@ -1,52 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>Asynchronous Squad JavaScript Quiz</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width"/>
-  <!-- Custom Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/style/quiz.css">
-  <!-- FontAwesome Kit -->
-    <script src="https://kit.fontawesome.com/0eb6aa6ebe.js" crossorigin="anonymous"></script>
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Lato:wght@300;400&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
-  <!-- JavaScript Files -->
-    <script type="text/javascript" src="quiz.js"></script>
-    <script src="assets/javascript/knockout-3.5.1.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-
-<body>
-  <section id="intro">
-    <div class="container">
-      <h1>WEB-330</h1>
-        <h2>Sarah Massie</h2>
-        <h2>Brooklyn Hairston</h2>
-        <h2>Juvenal Gonzalez</h2>
-        <p>A JavaScript quiz made by the Asynch Squad concluding one's expertise at this programming language.
-          <br/> Are you a novice, intermediate, or expert?</p>
-    </div>
-  </section>
-  <section id="main">
-    <div class="quiz-container">
-      <div id='quiz'></div>
-    		<div class='button' id='next'><a href='#'><span class="next-arrow"><i class="fas fa-angle-right"></i></i></a></div>
-    		<div class='button' id='prev'><a href='#'><span class="prev-arrow"><i class="fas fa-angle-left"></i></span></a></div>
-    		<div class='button' id='start'> <a href='#'>Start Over</a></div>
-    </div>
-  </section>
-</body>
-
-<!-- knockout Library -->
-<script src='assets/javascript/knockout-3.5.1.js'></script>
-<!-- quiz.js -->
-<script src='assets/javascript/quiz.js'></script>
-<!-- JQuery link -->
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
-
-<script>
-  var questions = [{
+var questions = [{
   question: "What is the correct way to write a JavaScript array?",
   choices: [
     'arrayName = [item1, item2, item3]',
@@ -288,6 +240,3 @@ function displayScore() {
                 scorePercent + '%.' + '<br>' + userLevel);
   return score;
 }
-
-</script>
-</html>
