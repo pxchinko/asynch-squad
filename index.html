@@ -25,7 +25,7 @@
         <h2>Brooklyn Hairston</h2>
         <h2>Juvenal Gonzalez</h2>
         <p>A JavaScript quiz made by the Asynch Squad concluding one's expertise at this programming language.
-          <br/> Are you a novice, intermediate, or expert?</p>
+          <br/> Are you a beginner, novice, or expert?</p>
     </div>
   </section>
   <section id="main">
@@ -37,13 +37,6 @@
     </div>
   </section>
 </body>
-
-<!-- knockout Library -->
-<script src='assets/javascript/knockout-3.5.1.js'></script>
-<!-- quiz.js -->
-<script src='assets/javascript/quiz.js'></script>
-<!-- JQuery link -->
-<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
 
 <script>
   var questions = [{
@@ -280,8 +273,8 @@ function displayScore() {
   }
   var scorePercent = Math.round(100* numCorrect/questions.length);
   let userLevel = (scorePercent >= 80) ? 'You\'re an Expert!' :
-                  (scorePercent >= 60) ? 'You\'re an Intermediate <br>Want to test your skills again?' :
-                  (scorePercent >= 30) ? 'You\'re a Novice. <br>Want to try again?' : 'You\'re a Novice. <br>Want to try again?' ;
+                  (scorePercent >= 60) ? 'You\'re a Novice! <br>Want to test your skills again?' :
+                  (scorePercent >= 30) ? 'You\'re a Beginner. <br>Want to try again?' : 'You\'re a Beginner. <br>Want to try again?' ;
   
   score.append('You got ' + numCorrect + ' questions out of ' +
                 questions.length + ' right! <br> That\'s a ' + 

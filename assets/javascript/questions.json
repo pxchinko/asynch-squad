@@ -1,0 +1,89 @@
+[{
+   "question": "What is the correct way to write a JavaScript array?",
+    "choices": [
+      "arrayName = [item1, item2, item3]",
+      "var arrayName = item1, item2, item3",
+      "var arrayName = \"item1, item2, item3\"",
+      "var arrayName = [item1, item2, item3]"
+    ],
+    "correctAnswer": 3
+  },{
+    "question": "How does JavaScript store dates in a date object?",
+    "choices": [
+      "The number of milliseconds since January 1st, 1970.",
+      "The number of days since January 1st, 1900.",
+      "The number of seconds since Netscape\"s public stock offering.",
+      "None of the above."
+    ],
+    "correctAnswer": 0
+  },{
+    "question": "How do you comment in JavaScript?",
+    "choices": [
+      "&ltComment Here&gt",
+      "&lt!--Comment Here--&gt",
+      "/Comment Here/",
+      "//Comment Here"
+    ],
+    "correctAnswer": 3
+  },{
+    "question": "How do you define a function in JavaScript?",
+    "choices": [
+      "Function myFunction() { //code here }",
+      "run myFunction { // code here }",
+      "function myFunction() { // code here }",
+      "Functions are defined in a separate file."
+    ],
+    "correctAnswer": 2
+  },{
+    "question": "What is the expected output of: \n &ltscript type = \"text/javascript\"&gt \n x = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt",
+    "choices": [
+      "44",
+      "8",
+      "4",
+      "Error output."
+    ],
+    "correctAnswer": 0
+  },{
+    "question": "What is the correct JavaScript syntax to write \"Hello World\"?",
+    "choices": [
+      "System.out.printIn(\"Hello World\")",
+      "printIn(\"Hello World\")",
+      "document.write(\"Hello World\")",
+      "response.write(\"Hello World\")"
+    ],
+    "correctAnswer": 2
+  },{
+    "question": "Where is the JavaScript placed inside an HTML document or page?",
+    "choices": [
+      "JavaScript cannot be placed inside an HTML document.",
+      "In the &ltbody&gt and &lthead&gt sections.",
+      "Only in the &lthead&gt section.",
+      "Only in the &ltbody&gt section."
+    ],
+    "correctAnswer": 3
+  },{
+    "question": "What is meant by the \"this\" keyword in JavaScript?",
+    "choices": [
+      "It refers to the current object.",
+      "It refers to the previous object.",
+      "It is a variable which contains a value.",
+      "None of the above."
+    ],
+    "correctAnswer": 0
+  },{
+    "question": "JavaScript is a case sensitive language.",
+    "choices": [
+      "True",
+      "False"
+    ],
+    "correctAnswer": 0
+  },{
+    "question": "Which group of array methods are used in JavaScript?",
+    "choices": [
+      "splice(), concat(), delete(), toString()",
+      "toString(), bubbleSort(), order(), quicksort()",
+      "&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt",
+      "SELECT, BREACH, FROM, INSERT"
+    ],
+    "correctAnswer": 0
+  }]

@@ -1,242 +1,77 @@
-var questions = [{
-  question: "What is the correct way to write a JavaScript array?",
-  choices: [
-    'arrayName = [item1, item2, item3]',
-    'var arrayName = item1, item2, item3',
-    'var arrayName = \"item1, item2, item3\"',
-    'var arrayName = [item1, item2, item3]'
-  ],
-  correctAnswer: '3'
-},{
-  question: 'How does JavaScript store dates in a date object?',
-  choices: [
-    'The number of milliseconds since January 1st, 1970.',
-    'The number of days since January 1st, 1900.',
-    'The number of seconds since Netscape\'s public stock offering.',
-    'None of the above.',
-  ],
-  correctAnswer: '0'
-},{
-  question: 'How do you comment in JavaScript?',
-  choices: [
-    '&ltComment Here&gt',
-    '&lt!--Comment Here--&gt',
-    '/Comment Here/',
-    '//Comment Here',
-  ],
-  correctAnswer: '3'
-},{
-  question: 'How do you define a function in JavaScript?',
-  choices: [
-    'Function myFunction() { //code here }',
-    'run myFunction { // code here }',
-    'function myFunction() { // code here }',
-    'Functions are defined in a separate file.'
-  ],
-  correctAnswer: '2'
-},{
-  question: 'What is the expected output of: \n &ltscript type = \"text/javascript\"&gt \n x = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
-  choices: [
-    '44',
-    '8',
-    '4',
-    'Error output.',
-  ],
-  correctAnswer: '0'
-},{
-  question: 'What is the correct JavaScript syntax to write \"Hello World\"?',
-  choices: [
-    'System.out.printIn(\"Hello World\")',
-    'printIn(\"Hello World\")',
-    'document.write(\"Hello World\")',
-    'response.write(\"Hello World\")',
-  ],
-  correctAnswer: '2'
-},{
-  question: 'Where is the JavaScript placed inside an HTML document or page?',
-  choices: [
-    'JavaScript cannot be placed inside an HTML document.',
-    'In the &ltbody&gt and &lthead&gt sections.',
-    'Only in the &lthead&gt section.',
-    'Only in the &ltbody&gt section.',
-  ],
-  correctAnswer: '3'
-},{
-  question: 'What is meant by the \"this\" keyword in JavaScript?',
-  choices: [
-    'It refers to the current object.',
-    'It refers to the previous object.',
-    'It is a variable which contains a value.',
-    'None of the above.',
-  ],
-  correctAnswer: '0'
-},{
-  question: 'JavaScript is a case sensitive language.',
-  choices: [
-    'True',
-    'False'
-  ],
-  correctAnswer: '0'
-},{
-  question: 'Which group of array methods are used in JavaScript?',
-  choices: [
-    'splice(), concat(), delete(), toString()',
-    'toString(), bubbleSort(), order(), quicksort()',
-    '&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt',
-    'SELECT, BREACH, FROM, INSERT',
-  ],
-  correctAnswer: '0'
-}];
+function Question( data ) {
+  var self = this;
+  self.question = data.question;
+  self.choices = ko.observableArray( [] );
+  data.choices.forEach( function ( c ) {
+      self.choices.push( c );
+  } );
+  self.answer = data.answer;
+};
   
-var questionCounter = 0; //Tracks question number
-var selections = []; //Array containing user choices
-var quiz = $('#quiz'); //Quiz div object
-
-// Display initial question
-displayNext();
-
-// Click handler for the 'next' button
-$('#next').on('click', function (e) {
-  e.preventDefault();
+function QuizViewModel(index, config) {
   
-  // Suspend click listener during fade animation
-  if(quiz.is(':animated')) {        
-    return false;
-  }
-  choose();
+  var self = this;
+  this.index = index;
+  this.text = config.text;
+  this.answers = [];
+  this.selectedAnswer = ko.observable();
   
-  // If no user selection, progress is stopped
-  if (isNaN(selections[questionCounter])) {
-    alert('Please make a selection!');
-  } else {
-    questionCounter++;
-    displayNext();
-  }
-});
+  self.questionList = ko.observableArray( [] );
 
-// Click handler for the 'prev' button
-$('#prev').on('click', function (e) {
-  e.preventDefault();
+  this.currentQuestion = ko.computed(function () {
+    return this.currentQuestionIndex() < this.questions().length ?
+        this.questions()[this.currentQuestionIndex()] : null;
+  }, this);
   
-  if(quiz.is(':animated')) {
-    return false;
-  }
-  choose();
-  questionCounter--;
-  displayNext();
-});
-
-// Click handler for the 'Start Over' button
-$('#start').on('click', function (e) {
-  e.preventDefault();
+  // Load initial state from server, convert it to Question instances, then populate self.questions
+  $.getJSON( "questions.json", function ( allData ) {
+      var mappedQuestions = $.map( allData, function ( item ) {
+          return new Question( item )
+      } );
+      self.questionList( mappedQuestions );
+  } );
   
-  if(quiz.is(':animated')) {
-    return false;
-  }
-  questionCounter = 0;
-  selections = [];
-  displayNext();
-  $('#start').hide();
-});
+  self.currentQuestion = ko.observable(self.questionList()[0]);
+  
+  this.previousQuestion = function () {
+      var index = self.questionList()[0].indexOf( self.currentQuestion );
+      self.currentQuestion( self.questionList()[index - 1] );
+  };
+  
+  this.nextQuestion = function () {
+      var index = self.questionList().indexOf( self.currentQuestion );
+      self.currentQuestion( self.questionList()[index + 1] );
+  };
 
-// Animates buttons on hover
-$('.button').on('mouseenter', function () {
-  $(this).addClass('active');
-});
-$('.button').on('mouseleave', function () {
-  $(this).removeClass('active');
-});
-
-// Creates and returns the div that contains the questions and 
-// the answer selections
-function createQuestionElement(index) {
-  var qElement = $('<div>', {
-    id: 'question'
+  $.each(config.questions, function (index, question) {
+    self.questions.push(new QuestionViewModel(index + 1, question));
   });
-  
-  var header = $('<h4>Question ' + (index + 1) + ':</h4>');
-  qElement.append(header);
-  
-  var question = $('<p>').append(questions[index].question);
-  qElement.append(question);
-  
-  var radioButtons = createRadios(index);
-  qElement.append(radioButtons);
-  
-  return qElement;
-}
 
-// Creates a list of the answer choices as radio inputs
-function createRadios(index) {
-  var radioList = $('<ul>');
-  var item;
-  var input = '';
-  for (var i = 0; i < questions[index].choices.length; i++) {
-    item = $('<li>');
-    input = '<input type="radio" name="answer" value=" ' + i + ' " />';
-    input += '<label>' +questions[index].choices[i]+'</label>';
-    item.append(input);
-    radioList.append(item);
-    console.log([questions[index].choices[i]])
-  }
-  return radioList;
-}
+  $.each(config.answers, function (index, answer) {
+    // add an index to each answer, and add to our observable array
+    answer.index = index + 1;
+    self.answers.push(answer);
 
-// Reads the user selection and pushes the value to an array
-function choose() {
-  selections[questionCounter] = +$('input[name="answer"]:checked').val();
-}
-// Displays next requested element
-function displayNext() {
-  quiz.fadeOut(function() {
-    $('#question').remove();
-    
-    if(questionCounter < questions.length){
-      var nextQuestion = createQuestionElement(questionCounter);
-      quiz.append(nextQuestion).fadeIn();
-      if (!(isNaN(selections[questionCounter]))) {
-        $('input[name='+selections[questionCounter]+']').prop('checked', true);
-      }
-      
-      // Controls display of 'prev' button
-      if(questionCounter === 1){
-        $('#prev').show();
-      } else if(questionCounter === 0){
-        
-        $('#prev').hide();
-        $('#next').show();
-      }
-    }else {
-      var scoreElem = displayScore();
-      quiz.append(scoreElem).fadeIn();
-      $('#next').hide();
-      $('#prev').hide();
-      $('#start').show();
+    // identify the correct answer
+    if (answer.isCorrect) {
+      self.correctAnswer = answer;
     }
   });
-}
 
-// Computes score and returns a paragraph element to be displayed
-function displayScore() {
-  var score = $('<h4>',{id: 'question'});
+  this.nextQuestion = function () {
+    self.currentQuestionIndex(self.currentQuestionIndex() + 1);
   
-  var numCorrect = 0;
-  for (var i = 0; i < selections.length; i++) {
-    var userAnswer = selections[i];
-    var correct = questions[i].correctAnswer;
-    console.log(questions[i].correctAnswer)
-    console.log(userAnswer)
-    if (userAnswer == correct) {
-      numCorrect++;
+    if (self.currentQuestionIndex() >= self.questions().length) {
+      var correctAnswers = $.grep(self.questions(), function (question) {
+        return question.selectedAnswer().isCorrect;
+      });
+      self.results(new ResultsViewModel(self.questions().length, correctAnswers.length));
     }
   }
-  var scorePercent = Math.round(100* numCorrect/questions.length);
-  let userLevel = (scorePercent >= 80) ? 'You\'re an Expert!' :
-                  (scorePercent >= 60) ? 'You\'re an Intermediate <br>Want to test your skills again?' :
-                  (scorePercent >= 30) ? 'You\'re a Novice. <br>Want to try again?' : 'You\'re a Novice. <br>Want to try again?' ;
   
-  score.append('You got ' + numCorrect + ' questions out of ' +
-                questions.length + ' right! <br> That\'s a ' + 
-                scorePercent + '%.' + '<br>' + userLevel);
-  return score;
-}
+  };
+  
+  ko.applyBindings( new QuizViewModel() );
+
+  var viewModel = new QuestionViewModel();
+    viewModel.selectedAnswer(foo);
