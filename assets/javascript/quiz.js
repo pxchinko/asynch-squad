@@ -154,7 +154,7 @@ $(document).ready(function(){
     id: 'question'
   });
 
-  var header = $('<h4>Question ' + (index + 1) + ':</h4>');
+  var header = $('<h4 class="emphasis">Question ' + (index + 1) + ':</h4><br/>');
   questionEl.append(header);
 
   var question = $('<p>').append(questions[index].question);
@@ -218,7 +218,7 @@ $(document).ready(function(){
 
   // Computes score and returns a paragraph element to be displayed
   function displayScore() {
-  var score = $('<h4>',{id: 'question'});
+  var score = $('<h3>',{id: 'question'});
 
   var numCorrect = 0;
   for (var i = 0; i < selections.length; i++) {
@@ -231,13 +231,13 @@ $(document).ready(function(){
     }
   }
   var scorePercent = Math.round(100* numCorrect/questions.length);
-  let userLevel = (scorePercent >= 80) ? 'You\'re an Expert!' :
-                  (scorePercent >= 60) ? 'You\'re a Novice! <br>Want to test your skills again?' :
-                  (scorePercent >= 30) ? 'You\'re a Beginner. <br>Want to try again?' : 'You\'re a Beginner. <br>Want to try again?' ;
+  let userLevel = (scorePercent >= 80) ? 'You\'re an <span class="emphasis">Expert</span>!' :
+                  (scorePercent >= 60) ? 'You\'re a <span class="emphasis">Novice</span>! <br>Want to test your skills again?' :
+                  (scorePercent >= 30) ? 'You\'re a <span class="emphasis">Beginner</span>. <br>Want to try again?' : 'You\'re a Beginner. <br>Want to try again?' ;
 
   score.append('You got ' + numCorrect + ' questions out of ' +
-                questions.length + ' right! <br> That\'s a ' + 
-                scorePercent + '%.' + '<br>' + userLevel);
+                questions.length + ' right!</h3><br/><br/><span class="emphasis">That\'s a ' + 
+                scorePercent + '%.</span>' + '<br/><br/>' + userLevel);
   return score;
   }
 })
