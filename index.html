@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
   <!-- Custom Stylesheet -->
-    <link rel="stylesheet" type="text/css" href="assets/style/quiz.css">
+    <link rel="stylesheet" type="text/css" media="screen and (max-width: 800px)" href="assets/style/mobile.css" />
+    <link rel="stylesheet" type="text/css" media="screen and (min-width: 801px)" href="assets/style/quiz.css" />
   <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/0eb6aa6ebe.js" crossorigin="anonymous"></script>
   <!-- Fonts -->
@@ -18,24 +19,22 @@
 </head>
 
 <body>
-  <section id="intro">
-    <div class="container">
-      <h1>Web 330</h1>
-        <h2>Sarah Massie</h2>
-        <h2>Brooklyn Hairston</h2>
-        <h2>Juvenal Gonzalez</h2>
-        <p>A JavaScript quiz made by the Asynch Squad concluding one's expertise at this programming language.
-          <br/> Are you a beginner, novice, or expert?</p>
-    </div>
-  </section>
-  <section id="main">
+  <nav>
+    <div id="title"><h1>2000s Quiz</h1></div>
+      <div id="authors">
+        <h2>by Sarah Massie</h2><br/>
+      </div>
+      <div id="description">
+      <p>A quiz to test your knowledge on the turn of the century's first decade.
+        <br/><br/> How well do you remember the 2000s?</p>
+      </div>
+  </nav>
     <div class="quiz-container">
       <div id='quiz'></div>
     		<div class='button' id='next'><a href='#'><span class="next-arrow"><i class="fas fa-angle-right"></i></i></a></div>
     		<div class='button' id='prev'><a href='#'><span class="prev-arrow"><i class="fas fa-angle-left"></i></span></a></div>
     		<div class='button' id='start'> <a href='#'>Start Over</a></div>
     </div>
-  </section>
 </body>
 
 </html>

@@ -1,91 +1,93 @@
 var questions = [{
-  question: "What is the correct way to write a JavaScript array?",
+  question: "What was the highest grossing movie of that decade?",
   choices: [
-    'arrayName = [item1, item2, item3]',
-    'var arrayName = item1, item2, item3',
-    'var arrayName = \"item1, item2, item3\"',
-    'var arrayName = [item1, item2, item3]'
+    'Harry Potter and the Half-Blood Prince ',
+    'The Dark Knight',
+    'The Lord of the Rings: The Return of the King',
+    'Avatar'
   ],
   correctAnswer: '3'
 },{
-  question: 'How does JavaScript store dates in a date object?',
+  question: 'Which year was the first iPod released?',
   choices: [
-    'The number of milliseconds since January 1st, 1970.',
-    'The number of days since January 1st, 1900.',
-    'The number of seconds since Netscape\'s public stock offering.',
-    'None of the above.',
+    '2001',
+    '2005',
+    '2000',
+    '2007',
   ],
   correctAnswer: '0'
 },{
-  question: 'How do you comment in JavaScript?',
+  question: 'Which Pixar film was the last of the decade?',
   choices: [
-    '&ltComment Here&gt',
-    '&lt!--Comment Here--&gt',
-    '/Comment Here/',
-    '//Comment Here',
+    'Ratatouille',
+    'Toy Story 3',
+    'WALL-E',
+    'Up',
   ],
   correctAnswer: '3'
 },{
-  question: 'How do you define a function in JavaScript?',
+  question: 'Which of these consoles wasn\'t released in the 2000s?',
   choices: [
-    'Function myFunction() { //code here }',
-    'run myFunction { // code here }',
-    'function myFunction() { // code here }',
-    'Functions are defined in a separate file.'
+    'Nintendo Wii',
+    'Sony PlayStation 3',
+    'Sega Dreamcast',
+    'Nintendo GameCube'
   ],
   correctAnswer: '2'
 },{
-  question: 'What is the expected output of: \n &ltscript type = \"text/javascript\"&gt \n x = 4 + \"4\";\ndocument.write(x);\n&lt/script&gt',
+  question: 'Who was your first friend on MySpace?',
   choices: [
-    '44',
-    '8',
-    '4',
-    'Error output.',
+    'Tom',
+    'John',
+    'Mark',
+    'Daniel',
   ],
   correctAnswer: '0'
 },{
-  question: 'What is the correct JavaScript syntax to write \"Hello World\"?',
+  question: 'Finish the lyric: "Because when the sun shine, we shine together. Told you I\'ll be here..."',
   choices: [
-    'System.out.printIn(\"Hello World\")',
-    'printIn(\"Hello World\")',
-    'document.write(\"Hello World\")',
-    'response.write(\"Hello World\")',
+    '\'til the end',
+    'whenever',
+    'forever',
+    'with ya',
   ],
   correctAnswer: '2'
 },{
-  question: 'Where is the JavaScript placed inside an HTML document or page?',
+  question: 'Ashton Kutcher was the host of what TV show?',
   choices: [
-    'JavaScript cannot be placed inside an HTML document.',
-    'In the &ltbody&gt and &lthead&gt sections.',
-    'Only in the &lthead&gt section.',
-    'Only in the &ltbody&gt section.',
+    'MTV\'s the 70s House',
+    'Dismissed',
+    'That 70s Show',
+    'Punk\'d'
   ],
   correctAnswer: '3'
 },{
-  question: 'What is meant by the \"this\" keyword in JavaScript?',
+  question: 'Which show does the couple Wanda and Cosmo appear in?',
   choices: [
-    'It refers to the current object.',
-    'It refers to the previous object.',
-    'It is a variable which contains a value.',
-    'None of the above.',
+    'Scooby-Doo',
+    'The Fairly Oddparents',
+    'Ozzy & Drix',
+    'The Powerpuff Girls'
+  ],
+  correctAnswer: '1'
+},{
+  question: 'To get your music on a blank CD, you do what to it?',
+  choices: [
+    'Burn it',
+    'Sync it',
+    'Drag it over',
+    'Copy it'
   ],
   correctAnswer: '0'
 },{
-  question: 'JavaScript is a case sensitive language.',
+  question: 'Which Beyoncé song went #1 in the first weeks of 2007?',
   choices: [
-    'True',
-    'False'
+    'Crazy In Love',
+    'Irreplaceable',
+    'Single Ladies',
+    'If I Were A Boy'
   ],
-  correctAnswer: '0'
-},{
-  question: 'Which group of array methods are used in JavaScript?',
-  choices: [
-    'splice(), concat(), delete(), toString()',
-    'toString(), bubbleSort(), order(), quicksort()',
-    '&ltarray&gt, &ltdeque&gt, &ltset&gt, &ltvector&gt',
-    'SELECT, BREACH, FROM, INSERT',
-  ],
-  correctAnswer: '0'
+  correctAnswer: '1'
 }];
 
 $(document).ready(function(){
@@ -231,13 +233,13 @@ $(document).ready(function(){
     }
   }
   var scorePercent = Math.round(100* numCorrect/questions.length);
-  let userLevel = (scorePercent >= 80) ? 'You\'re an <span class="emphasis">Expert</span>!' :
-                  (scorePercent >= 60) ? 'You\'re a <span class="emphasis">Novice</span>! <br>Want to test your skills again?' :
-                  (scorePercent >= 30) ? 'You\'re a <span class="emphasis">Beginner</span>. <br>Want to try again?' : 'You\'re a Beginner. <br>Want to try again?' ;
+  let userLevel = (scorePercent >= 80) ? 'You\'re a <span class="emphasis">2000s Expert</span>!' : 
+                  (scorePercent >= 60) ? 'You\'re a <span class="emphasis">Zillennial</span>!' :
+                  (scorePercent >= 30) ? 'You\'re either a <span class="emphasis">Boomer</span> or <span class=="emphasis">Zoomer</span>.' : 'You\'re either a <span class="emphasis">Boomer</span> or <span class=="emphasis">Zoomer</span>.' ;
 
   score.append('You got ' + numCorrect + ' questions out of ' +
-                questions.length + ' right!</h3><br/><br/><span class="emphasis">That\'s a ' + 
-                scorePercent + '%.</span>' + '<br/><br/>' + userLevel);
+                questions.length + ' right!</h3><br/><span class="emphasis">That\'s a ' + 
+                scorePercent + '%.</span>' + '<br/>' + userLevel);
   return score;
   }
 })
